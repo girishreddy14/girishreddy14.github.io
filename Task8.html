@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
+        let users=[]
         function showData(){
             //alert("Hello World")
             let name = document.getElementById("name").value
@@ -19,8 +20,14 @@
                 dob:dob
             }
             users.push(user)
-            let str=" "
-            data.innerHTML = `${name}, ${email}, ${password}, ${dob}`
+            console.log(users)
+            let length = users.length;
+            let str=" ";
+            for(let i=0;i<length;i++){
+                str = str + `<li>${users[i].name}-${users[i].email}</li>`
+            }
+            data.innerHTML = str
+            //data.innerHTML = `${name}, ${email}, ${password}, ${dob}`
         }
     </script>
   </head>
