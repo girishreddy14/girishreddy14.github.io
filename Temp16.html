@@ -9,6 +9,30 @@
       let useremail = ""
       let username = ""
       let currBalance = 0
+      
+      function saveData(){
+        let amount=Number(document.getElementById("amount").value)
+        let type=document.getElementById("type").value
+        for(let i=0;i<users.length;i++){
+            if(users[i].email == useremail){
+                if(type== "1"){
+                    users[i].balance += amount
+                }
+                else if (type == "2"){
+                    if(users[i].balance>0){
+                    users[i].balance -= amount
+                    }
+                    else{
+                        spBalance.innerHTML = "insufficent"
+                        break
+                    }
+                }
+                spBalance.innerHTML = users[i].balance
+                break
+            }
+            
+        }
+      }
       function home() {
         let str = `
             <h2>Welcome ${username}</h2>
@@ -18,9 +42,13 @@
                <option value=0>--Select--</option>
                <option value=1>Deposit</option>
                <option value=2>Withdraw</option>
+               <option value=3>Transfer</option>
                </select></p>
-               <button>Submit</button>
-               <p>Current Balance: ${currBalance}</p>
+               <p><select id="selUser">
+                <option value=0>--Select--</option>
+                </select></p>
+               <button onclick='saveData()'>Submit</button>
+               <p>Current Balance: <span id='spBalance'>${currBalance}</span></p>
 
             `;
         root.innerHTML = str;
