@@ -1,4 +1,14 @@
-
+.header{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.menu{
+    display: flex;
+}
+.menu div{
+    padding: 10px;
+}
 .row {
     display: flex;
     justify-content: center;

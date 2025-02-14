@@ -74,7 +74,7 @@ const showProducts = (data) => {
     <img src='${value.url}'>
     <h3>${value.name}</h3>
     <p>${value.desc}</p>
-    <h4>${value.price}</h4>
+    <h4>₹${value.price}</h4>
     <button onclick='addToCart(${value.id})'>Add to Cart</button>
     </div>
     `;
